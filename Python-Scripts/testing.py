@@ -1,7 +1,8 @@
 mylist = ['one', 'two', 'three', 'four']
-count = range(len(mylist))
-for i in mylist:
-    if i != 'two':
-        mylist.pop()
-        i-=1
+for i in range(len(mylist)):
+    for j in mylist[i]:
+        if j == 'two':
+            continue
+        else:
+            mylist.pop(i)
 print(f'This remains of my list: {mylist}')
