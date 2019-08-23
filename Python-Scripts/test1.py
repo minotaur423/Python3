@@ -1,18 +1,11 @@
-my_str = 'catcat'
-str1 = 'cat'
-str2 = 'dog'
-ccount = my_str.count('cat')
-dcount = 0
-
-for i in range(len(my_str)):
-    if str1 in my_str[i:i+3]:
-        ccount += 1
-    elif str2 in my_str[i:i+3]:
-        dcount += 1
-    else:
-        result = False
-if ccount == dcount:
-    result = True
-else:
-    result = False
-print(result)
+nums = [1, 2, 3, 4, 100]
+max_num = max(nums)
+min_num = min(nums)
+nums.remove(max_num)
+nums.remove(min_num)
+sum_num = 0
+count = 0
+for num in nums:
+    sum_num += num
+    count += 1
+print(int(sum_num/count))
