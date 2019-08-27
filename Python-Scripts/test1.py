@@ -1,11 +1,6 @@
-nums = [1, 2, 3, 4, 100]
-max_num = max(nums)
-min_num = min(nums)
-nums.remove(max_num)
-nums.remove(min_num)
-sum_num = 0
-count = 0
-for num in nums:
-    sum_num += num
-    count += 1
-print(int(sum_num/count))
+st = 'Print every word in this sentence that has an even number of letters'
+list_st = st.split()
+
+for word in list_st:
+    if len(word) % 2 == 0:
+        print (f'The word {word} is even.')
