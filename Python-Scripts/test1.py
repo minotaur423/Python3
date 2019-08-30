@@ -1,6 +1,10 @@
-st = 'Print every word in this sentence that has an even number of letters'
-list_st = st.split()
-
-for word in list_st:
-    if len(word) % 2 == 0:
-        print (f'The word {word} is even.')
+def count_primes(num):
+    count = 100
+    for i in range(0,num + 1):
+        if i % 2 == 0 or i % 3 == 0 or i % 5 == 0 or i % 7 == 0 or i % 11 == 0:
+            count -= 1
+        else:
+            continue
+    return (num) - count
+result = count_primes(100)
+print(result)
