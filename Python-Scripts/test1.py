@@ -1,10 +1,12 @@
-def count_primes(num):
-    count = 100
-    for i in range(0,num + 1):
-        if i % 2 == 0 or i % 3 == 0 or i % 5 == 0 or i % 7 == 0 or i % 11 == 0:
-            count -= 1
-        else:
-            continue
-    return (num) - count
-result = count_primes(100)
-print(result)
+def weighted_digits(*args):
+    result = 0
+    str_num = " "
+    for arg in args:
+        str_num = str(arg)
+        list_num = str_num.split()
+        for i in range(0, (len(list_num))):
+            result += (int(list_num[i]) * i + 1)
+    return result
+
+for i in [9, 15, 1776]:
+    print(weighted_digits(i), end=" ")
