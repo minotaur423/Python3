@@ -7,22 +7,31 @@ def match_brackets(data):
             brackets.append(i)
         else:
             chars.append(i)
+    match = []
     count = (len(brackets) - 1)
-    for i in range(count,0,-1):
-        if brackets[i] == ')' and brackets[i-1] == '(':
-            brackets.pop(i)
-            brackets.pop(i-1)
-        elif brackets[i] == ']' and brackets[i-1] == '[':
-            brackets.pop(i)
-            brackets.pop(i-1)
-        elif brackets[i] == '}' and brackets[i-1] == '{':
-            brackets.pop(i)
-            brackets.pop(i-1)
-        elif brackets[i] == '>' and brackets[i-1] == '<':
-            brackets.pop(i)
-            brackets.pop(i-1)
-        else:
-            continue
+    if count % 2 == 0:
+        return 0
+    else:
+        while count > 0:
+            if brackets[count] == ')' and brackets[count-1] == '(':
+                match.append(brackets.pop(count))
+                match.append(brackets.pop(count-1))
+                count = (len(brackets) - 1)
+            elif brackets[count] == ']' and brackets[count-1] == '[':
+                match.append(brackets.pop(count))
+                match.append(brackets.pop(count-1))
+                count = (len(brackets) - 1)
+            elif brackets[count] == '}' and brackets[count-1] == '{':
+                match.append(brackets.pop(count))
+                match.append(brackets.pop(count-1))
+                count = (len(brackets) - 1)
+            elif brackets[count] == '>' and brackets[count-1] == '<':
+                match.append(brackets.pop(count))
+                match.append(brackets.pop(count-1))
+                count = (len(brackets) - 1)
+            else:
+                count -= 1
+                continue    
     if not brackets:
         return 1
     else:
