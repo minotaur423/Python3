@@ -4,7 +4,7 @@ def array_chksm(*args):
     value = 113
     modulo = 10000007
     for i in range(len(args)):
-        result += (result + args[i]) * value
-    return (result % modulo)
-
+        result = (((args[i] + result) * value) % modulo)
+    return (result)
+ 
 print(array_chksm(3, 1, 4, 1, 5, 9))
