@@ -15,18 +15,20 @@ def display_board(board):
 
 # Function takes in player input and assigns marker as 'X' or 'O'
 def player_input():
-    player1 = input("Please pick a marker 'X' or 'O': ")
-    if player1.lower() == 'x':
-        marker = 'X'
-        print(f'Player1 is {marker} and Player2 is O.')
-    else:
-        marker = 'O'
-        print(f'Player1 is {marker} and Player2 is X.')
+    marker = ''
+    while not marker:
+        player1 = input("Please pick a marker 'X' or 'O': ")
+        if player1.lower() == 'x':
+            marker = 'X'
+            print(f'Player1 is {marker} and Player2 is O.')
+        else:
+            marker = 'O'
+            print(f'Player1 is {marker} and Player2 is X.')
     return marker
 
 # Function takes in the board list object, a marker ('X' or 'O'), and a desired position (number 1-9) and assigns it to the board.
 def place_marker(board, marker, position):
-    test_board[position] = marker
+    board[position] = marker
 
 # Function takes in a board and a mark (X or O) and then checks to see if that mark has won.
 def win_check(board, mark):
@@ -55,16 +57,15 @@ def space_check(board, position):
 
 # Function checks if the board is full and returns True if full, False otherwise.
 def full_board_check(board):
+    result = True
     for i in range(len(board)):
         if board[i] == " ":
-            return False
-        else:
-            return True
-
+            result = False
+    return result
 # Function asks player if they want to play again; returns a boolean True if yes.
 def replay():
-    replay = input('Would you like to play again? (Y/n)')
-    if replay.lower() == 'y':
+    restart = input('Would you like to play again? (Y/n)')
+    if restart.lower() == 'y':
         return True
     else:
         return False
@@ -76,12 +77,69 @@ def player_choice(board):
         return position
     else:
         return 'Space used.'
-    
-test_board = ['#',' ',' ',' ',' ',' ',' ',' ',' ',' ']
 
-play = player_input()
+from random import randint
 
-slot = int(input('Please enter a number: '))
+def choose_first():
+    player1 = 1
+    player2 = 2
+    player = randint(player1,player2)
+    return player
 
-place_marker(test_board,play,slot)
-display_board(test_board)
+
+while True:
+    test_board = ['#',' ',' ',' ',' ',' ',' ',' ',' ',' ']
+    game_on = True
+
+    print("Welcome to Tic Tac Toe!\n")
+
+    # The function will select the first player.
+    first_player = choose_first()
+    if first_player == 1:
+        second_player = 2
+        print(f'Player1 will go first.'+'\n')
+    else:
+        first_player == 2
+        second_player = 1
+        print(f'Player2 will go first.'+'\n')
+
+    # This function will return a marker for the first player.
+    marker_selected = player_input()
+    if marker_selected == 'X':
+        first = 'X'
+        second = 'O'
+    else:
+        second = 'X'
+        first = 'O'
+
+    while game_on:
+        #Player 1 Turn
+        slot = int(input('Please enter a number: '))
+        place_marker(test_board,first,slot)
+        display_board(test_board)
+        if  win_check(test_board, first) == True:
+            print(f'Player{first_player} wins!!!')
+            game_on = False
+            break
+        elif full_board_check(test_board) == True:
+            print('\nThis game is a draw!!!')
+            game_on = False
+            break
+        
+        # Player2's turn.
+        slot = int(input('Please enter a number: '))
+        place_marker(test_board,second,slot)
+        display_board(test_board)
+        if  win_check(test_board, first) == True:
+            print(f'Player{second_player} wins!!!')
+            game_on = False
+            break
+        elif full_board_check(test_board) == True:
+            print('\nThis game is a draw!!!')
+            game_on = False
+            break
+
+    if not replay():
+        break
+    else:
+        continue
