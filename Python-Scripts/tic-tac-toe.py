@@ -3,7 +3,7 @@
 
 def display_board(board):
 #    clear_output()  # Remember, this only works in jupyter!
-    
+
     print(f'      |       |      ')
     print(f'  {board[7]}   |   {board[8]}   |   {board[9]}  ')
     print(f'      |       |      ')
