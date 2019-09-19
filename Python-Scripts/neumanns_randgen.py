@@ -7,8 +7,19 @@
 # 5. To get more values, repeat from step 2.
 
 def randgen(num):
-    new_num = num**2
-    str_num = str(new_num)
-    if len(str_num) % 2 == 0:
-        middle = int(len(str_num) / 2)
-        mid_num = str_num[middle]
+    iterations = 1
+    num_list = []
+    squared_num = 0
+    new_num = num
+    while True:
+        num_list.append(new_num)
+        squared_num = new_num**2
+        new_num = int((squared_num / 100) % 10000)
+        if new_num in num_list:
+            break
+        else:
+            iterations += 1
+    return iterations
+
+for i in (405, 9251, 3779, 1451, 7589, 6212, 3761, 7849, 3488, 1532, 8096, 6068):
+    print(randgen(i), end=" ")
