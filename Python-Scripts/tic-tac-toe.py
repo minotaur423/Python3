@@ -87,11 +87,18 @@ def replay():
 def player_choice(board):
     position = ''
     while not position:
-        position = int(input('\nPlease enter a number: '))
+        while True:
+            try:
+                position = int(input('\nPlease enter a number: '))
+            except:
+                print(f'Your entry is not a number from 1 to 9.')
+                continue
+            else:
+                break
         if space_check(board,position) == True:
             return position
         else:
-            print(f'The number {position} has been used. Pick another number.')
+            print('The number select has been used. Pick another number.')
             position = ''
 
 # Function to select the first player.
