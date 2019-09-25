@@ -1,7 +1,8 @@
-# Find PI to the Nth Digit
-import math
-def find_pi(num):
-    return round(math.pi, num)
+# Generate the Fibonacci sequence
+def find_e(num):
+    for i in range(num):
+        
+    return round(math.e, num)
 
 #code here
 
@@ -13,4 +14,4 @@ while True:
     else:
         break
 
-print(find_pi(DECIMAL_PLACE))
+print(find_e(DECIMAL_PLACE))
