@@ -1,31 +1,25 @@
 # Generate the Fibonacci sequence
-def find_fibon(num):
+def find_primes(num):
     primes = []
-    while True:
-        if num % 2 == 0:
-            new_num = num / 2
-            primes.append(2)
-        elif num % 3 = 
-            new_num = num / 3
-            primes.append(3)
+    count = 0
+    for i in range(1,num+1):
+        if num % i == 0:
+            count += 1
+            primes.append(i)
+        else:
+            continue
+    return count
         
-        
-    for i in range(num):
-        
-        yield a
-        a, b = b, a+b
-
 #code here
-ITERATIONS = 0
+NUMBER = 0
 while True:
     try:
-        ITERATIONS = int(input("Enter the number of fibonacci iterations from five to 20: "))
-        if ITERATIONS not in range(5,21):
+        NUMBER = int(input("Enter a number from 2 to 200 to get the number of factors it has: "))
+        if NUMBER not in range(2,201):
             continue
     except:
-            print("Incorrect entry.  You must enter a number between 5 and 20. Try again.\n")
+            print("Incorrect entry.  You must enter a number between 2 and 200. Try again.\n")
     else:
         break
     
-for num in find_fibon(ITERATIONS):
-    print(num)
+print(f'The number of primes in {NUMBER} is {find_primes(NUMBER)}.')
