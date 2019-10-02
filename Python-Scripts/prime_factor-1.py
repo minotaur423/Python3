@@ -28,11 +28,11 @@ NUMBER = 0
 while True:
     try:
         NUMBER = int(input("Enter a number from 2 to 1000 to get the number of factors it has: "))
-        if NUMBER not in range(2,1001):
+        if NUMBER not in range(2, 1001):
             continue
     except:
         print("Incorrect entry.  You must enter a number between 2 and 1000. Try again.\n")
     else:
         break
-    
-print(f'The number of primes in {NUMBER} is {find_primes(NUMBER)}.')
+for number in range(2, NUMBER):
+    print(f'The number of primes in {number} is {find_primes(number)}.')
