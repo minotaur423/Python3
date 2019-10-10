@@ -7,4 +7,4 @@ for a, b, c, d in data:
         if result >= 0:
             break
         x += 1
-    print(round(x,12), end=" ")
+    print(round(x/1,12), end=" ")
