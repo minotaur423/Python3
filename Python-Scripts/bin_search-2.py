@@ -5,7 +5,7 @@ x = 0.00000001
 for a, b, c, d in data:
     x = 0.00000001
     while True:
-        x += 0.0000001
+        x += 0.0000000001
         result = a * x + b * sqrt(x**3) - c * (exp(-x/50)) - d
         if result >= 0:
             break
