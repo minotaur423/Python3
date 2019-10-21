@@ -1,14 +1,15 @@
-str1 = 'abc.xyzxyz'
-result = bool
+def xyz_there(str):
+    result = bool
+    s_len = len(str)
+    if s_len > 0:
+        for i in range(s_len):
+            if 'xyz' == str[i:i+4:]:
+                result = True
+            else:
+                result = False
+    else:
+        result = False
+    return result
 
-if 'xyz' in str1 and '.xyz' not in str1:
-    result = True
-elif 'xyz' not in str1:
-    result = False
-else:
-    for i in range(len(str1)-3):
-        if str1[i:i+4] == '.xyz':
-            result = False
-        else:
-            result = True
-print(result)
+print(xyz_there('abc.xyz'))
+print(xyz_there('xyz.abc'))

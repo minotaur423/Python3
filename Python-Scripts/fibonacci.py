@@ -1,22 +1,17 @@
-# Generate the Fibonacci sequence
-def find_fibon(num):
-    a = 1
-    b = 1
-    for i in range(num):
-        yield a
-        a, b = b, a+b
-
-#code here
-ITERATIONS = 0
-while True:
-    try:
-        ITERATIONS = int(input("Enter the number of fibonacci iterations from five to 20: "))
-        if ITERATIONS not in range(5,21):
-            continue
-    except:
-            print("Incorrect entry.  You must enter a number between 5 and 20. Try again.\n")
+nums = 34
+total = 0
+num1 = 0
+num2 = 1
+count = 0
+sum_even = 0
+for count in range(nums):
+    if total < 4000000:
+        total = num1 + num2
+        if total % 2 == 0:
+            sum_even += total
+        num1 = num2
+        num2 = total
+        count += 1
     else:
         break
-    
-for num in find_fibon(ITERATIONS):
-    print(num)
+print(sum_even)

@@ -1,17 +1,14 @@
-def palindrome(s):
-    first_part = []
-    last_part = []
-    count = 0
-    reverse = (len(s) -1)
-    mid_point = int(len(s)/2)
-    while count < mid_point:
-        first_part.append(s[count])
-        last_part.append(s[reverse])
-        count += 1
-        reverse -= 1
-    if first_part == last_part:
-        return True
-    else:
-        return False
-
-print(palindrome('helleh'))
+s = 'top spot'
+new_s = s.replace(" ", "")
+length = len(new_s)
+midway = 0
+result = False
+if length % 2 == 0:
+    midway = int(length / 2)
+    if new_s[0:midway] == new_s[length:midway-1:-1]:
+        result = True
+else:
+    midway = int(length / 2) + 1
+    if new_s[0:midway] == new_s[length:midway-2:-1]:
+        result = True
+print(result)
