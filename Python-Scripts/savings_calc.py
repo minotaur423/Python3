@@ -1,8 +1,8 @@
 def calc_savings(s, r, p):
-    new_s = 0.0
-    for y in range(30):
-        new_s += (s * (p/100) + s)
-        if new_s == r:
+    new_s = s
+    for y in range(1,31):
+        new_s += (new_s * (p/100))
+        if new_s >= r:
             break
         else:
             continue
