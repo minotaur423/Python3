@@ -1,0 +1,6 @@
+$ cd /usr/share/code
+$ sudo cp /usr/lib64/libxcb.so.1 .
+$ sudo sed -i 's/BIG-REQUESTS/_IG-REQUESTS/' libxcb.so.1
+
+$ alias thonny='/home/jsantos/apps/thonny/bin/thonny'
+$ thonny fix-sudo.py
