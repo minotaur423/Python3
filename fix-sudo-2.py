@@ -8,24 +8,23 @@ import shutil
 def reinstall_function():
     shutil.copy('/etc/sudoers', '/etc/sudoers.bak')
     os.system('yum -y reinstall sudo')
-
-CHANGED=[]
+RESULT=[]
 HOSTNAME=os.getenv('HOSTNAME')
 print('------------------------------')
 print(HOSTNAME)
-print('------------------------------', end='\n')
+print('------------------------------\n')
 STAT=os.stat('/etc/sudoers').st_mode
 
-if oct(STAT) != '0o100440':
+if oct(STAT) != '0100440':
     print("Reinstalling sudo, since permissions were altered!")
     reinstall_function()
-    CHANGED.append(HOSTNAME)
 else:
-    print('The sudo file permissions are correct. No changes required.', end='\n\n')
+    print('The sudo file permissions are correct. No changes required.\n\n')
 
 f = open('/etc/sudoers', 'r')
 try:
     line = f.readline()
+    print('The following usernames have root privileges:\n')
     while line:
         if 'root' in line or 'wheel' in line:
             pass

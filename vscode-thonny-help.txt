@@ -4,3 +4,11 @@ $ sudo sed -i 's/BIG-REQUESTS/_IG-REQUESTS/' libxcb.so.1
 
 $ alias thonny='/home/jsantos/apps/thonny/bin/thonny'
 $ thonny fix-sudo.py
+
+Second Method:
+$ find /usr -iname libxcb.so.1
+/usr/lib/i386-linux-gnu/libxcb.so.1
+/usr/lib/x86_64-linux-gnu/libxcb.so.1
+
+cp /usr/lib/x86_64-linux-gnu/libxcb.so.1 /usr/share/atom/
+sed -i ‘s/BIG-REQUESTS/_IG-REQUESTS/’ /usr/share/atom/libxcb.so.1
