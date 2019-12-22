@@ -13,7 +13,7 @@ if oct(STAT) != '0100440':
     print('Fixing sudo file permissions.\n')
     shutil.copy('/etc/sudoers', '/etc/sudoers.bak')
     os.chmod('/etc/sudoers', 0440)
-    print('Done! ' + HOSTNAME + 'is good now.\n')
+    print('Done! ' + HOSTNAME + ' is good now.\n')
 else:
     print('Sudo file permissions are correct. No changes required.\n\n')
 '''
