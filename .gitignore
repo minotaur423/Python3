@@ -27,5 +27,6 @@ someOtherfoler/
 *.tar
 *.zip
 .ipynb_checkpoints
+.ipynb_checkpoints/
 
 Complete-Python-3-Bootcamp/*
